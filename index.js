@@ -14,7 +14,7 @@ client.on('ready', () => {
 })
 
 client.on('messageCreate', (message) => {
-    if (message.content != '/online') {
+    if (message.content == '/online') {
         message.react('👍')
     }
 })
