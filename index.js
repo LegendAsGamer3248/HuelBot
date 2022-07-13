@@ -1,6 +1,6 @@
 import DiscordJS, { Intents } from 'discord.js'
-import dotenv from 'dotenv'
-dotenv.config();
+// import dotenv from 'dotenv'  // => Only used for testing, not really needed.
+// dotenv.config();
 
 const client = new DiscordJS.Client({
     intents: [
