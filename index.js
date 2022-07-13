@@ -22,7 +22,7 @@ client.on('ready', () => {
 
     commands?.create({
         name: 'online',
-        description: 'Will tell you wether the bot is currently suffering from an outage or not.'
+        description: 'Responds if there\'s no outage.'
     })
 
 /*    commands?.create({
