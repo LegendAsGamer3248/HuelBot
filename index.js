@@ -24,6 +24,18 @@ client.on('ready', () => {
         name: 'online',
         description: 'Will tell you wether the bot is currently suffering from an outage or not.'
     })
+
+/*    commands?.create({
+        name: 'commands-only',
+        description: 'Makes sure commands can only be triggered in defined channel.',
+        options: [{
+            name: 'channel',
+            description: 'Channels you want to whitelist for bot-commands.',
+            required: true,
+            type: DiscordJS.Constants.ApplicationCommandOptionTypes.CHANNEL
+        }
+        ]
+    })*/
 })
 
 client.on('interactionCreate', async (interaction) => {
@@ -33,7 +45,7 @@ client.on('interactionCreate', async (interaction) => {
 
     const { commandName, options } = interaction
 
-    if (commandName === 'online') {
+    if (commandName === 'online' /* check if in bot commands channel, note that this requires a database */ ) {
         interaction.reply({
             content: 'Yes, I am online!',
             ephemeral: true
