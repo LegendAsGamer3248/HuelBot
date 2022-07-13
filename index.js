@@ -14,9 +14,11 @@ client.on('ready', () => {
 })
 
 client.on('messageCreate', (message) => {
-    if (message.author != '808640080767352832') {
+    if (message.content != '/online') {
         message.react('👍')
     }
 })
+
+client.on('m')
 
 client.login(process.env.TOKEN)
