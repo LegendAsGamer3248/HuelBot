@@ -33,7 +33,7 @@ client.on('interactionCreate', async (interaction) => {
 
     const { commandName, options } = interaction
 
-    if (commandName === 'ping') {
+    if (commandName === 'online') {
         interaction.reply({
             content: 'Yes, I am online!',
             ephemeral: true
