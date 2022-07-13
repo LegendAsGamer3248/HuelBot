@@ -1,0 +1,25 @@
+{
+  "name": "huelbot",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Huel protects your server from unwanted Usernames with its custom Username System. It also filters Usernames for bad words &amp; invites. The bot currently does not have a dashboard or official website yet.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LegendAsGamer3248/HuelBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LegendAsGamer3248/HuelBot/issues"
+  },
+  "homepage": "https://github.com/LegendAsGamer3248/HuelBot#readme",
+  "dependencies": {
+    "discord.js": "^13.8.1",
+    "dotenv": "^16.0.1"
+  }
+}
