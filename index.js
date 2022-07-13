@@ -14,7 +14,7 @@ client.on('ready', () => {
 })
 
 client.on('messageCreate', (message) => {
-    if (message.content == '/online') {
+    if (message.content == '/online' && message.channelId == '996747038433738762') {
         message.react('👍')
     }
 })
