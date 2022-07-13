@@ -14,7 +14,9 @@ client.on('ready', () => {
 })
 
 client.on('messageCreate', (message) => {
-    message.react('👍')
+    if (message.author != '808640080767352832') {
+        message.react('👍')
+    }
 })
 
 client.login(process.env.TOKEN)
