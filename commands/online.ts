@@ -6,10 +6,10 @@ module.exports = {
     salsh: true,
     testOnly: true,
     
-    if (interaction) {
-        interaction.reply({
+    callback: ({}) => {
+        return {
             content: 'I am here!',
             ephermal: true
-        })
+        }
     }
 }
