@@ -1,3 +1,5 @@
+import { ICommand } from "wokcommands"
+
 module.exports = {
     category: 'Testing',
     description: 'Does not respond if Bot is down',
@@ -8,4 +10,4 @@ module.exports = {
     callback: ({}) => {
         return 'I am here!'
     }
-} 
+} as ICommand
