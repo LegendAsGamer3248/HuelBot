@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 import dotenv from 'dotenv'  // => Only used for testing on your OWN PC, not really needed.
-dotenv.config();
+// dotenv.config();
 
 const client = new DiscordJS.Client({
     intents: [
