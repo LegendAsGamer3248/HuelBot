@@ -1,6 +1,8 @@
-import DiscordJS, { Intents } from 'discord.js'
-import dotenv from 'dotenv'  // => Only used for testing, not really needed.
-dotenv.config();
+import DiscordJS, { Intents } from 'discord.js' // DiscordJS
+import WOKCommands from 'wokcommands' // Command Handler
+import path from 'path' //
+import dotenv from 'dotenv'  // => Only used for testing on your OWN PC, not really needed.
+// dotenv.config();
 
 const client = new DiscordJS.Client({
     intents: [
@@ -10,47 +12,11 @@ const client = new DiscordJS.Client({
 
 client.on('ready', () => {
     console.log('Huel is ready.')
-    const guildId = '996435642273779743'
-    const guild = client.guilds.cache.get(guildId)
-    let commands
 
-    if (guild) {
-        commands = guild.commands
-    } else {
-        commands = client.application?.commands
-    }
-
-    commands?.create({
-        name: 'online',
-        description: 'Responds if there\'s no outage.'
+    new WOKCommands(client, {
+        commandDir: path.join(__dirname, 'commands'),
+        testServers: ['996435642273779743']
     })
-
-/*    commands?.create({
-        name: 'commands-only',
-        description: 'Makes sure commands can only be triggered in defined channel.',
-        options: [{
-            name: 'channel',
-            description: 'Channels you want to whitelist for bot-commands.',
-            required: true,
-            type: DiscordJS.Constants.ApplicationCommandOptionTypes.CHANNEL
-        }
-        ]
-    })*/
-})
-
-client.on('interactionCreate', async (interaction) => {
-    if (!interaction.isCommand()) {
-        return
-    }
-
-    const { commandName, options } = interaction
-
-    if (commandName === 'online' /* check if in bot commands channel, note that this requires a database */ ) {
-        interaction.reply({
-            content: 'Yes, I am online!',
-            ephemeral: true
-        })
-    }
 })
 
 client.login(process.env.TOKEN)
