@@ -1,5 +1,7 @@
-import DiscordJS, { Intents } from 'discord.js' // DiscordJS
-import WOKCommands from 'wokcommands' // Command Handler
+import DiscordJS, { Intents } from 'discord.js'; // DiscordJS
+import WOKCommands from 'wokcommands'; // Command Handler
+import mongoose from 'mongoose';
+import testSchema from './test-schema.js';
 
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -7,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 import dotenv from 'dotenv'  // => Only used for testing on your OWN PC, not really needed.
-// dotenv.config();
+dotenv.config(); // Comment this out on release.
 
 const client = new DiscordJS.Client({
     intents: [
@@ -15,13 +17,16 @@ const client = new DiscordJS.Client({
     ]
 })
 
-client.on('ready', () => {
-    console.log('Huel is ready.')
-
+client.on('ready', async () => {
+    // Command Handler Settings
     new WOKCommands(client, {
         commandsDir: path.join(__dirname, 'commands'),
         testServers: ['996435642273779743'],
-        typeScript: true
+        typeScript: true,
+        mongoUri: process.env.MONGO_URI,
+        dbOptions: {
+            keepAlive: true
+        }
     })
 })
 

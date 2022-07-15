@@ -1,9 +1,9 @@
 module.exports = {
-    category: 'Testing',
+    category: 'Utility',
     description: 'Does not respond if Bot is down',
     cooldown: '3s',
 
-    salsh: true,
+    slash: true,
     testOnly: true,
     
     callback: ({ interaction }) => {
